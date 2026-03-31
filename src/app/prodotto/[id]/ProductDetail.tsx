@@ -4,9 +4,50 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Product, PRODUCTS } from "@/data/products";
+import { Review } from "@/types/review";
 import { useMemo, useState } from "react";
 
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+
+/** Stelle stile Amazon: riempite, metà, vuote */
+function StarRating({ stars, size = "md" }: { stars: number; size?: "sm" | "md" | "lg" }) {
+  const sz = size === "sm" ? "w-3.5 h-3.5" : size === "lg" ? "w-6 h-6" : "w-5 h-5";
+  return (
+    <span
+      className="inline-flex items-center gap-0.5"
+      aria-label={`${stars} stelle su 5`}
+      data-stars={stars}
+    >
+      {Array.from({ length: 5 }, (_, i) => {
+        const filled = stars >= i + 1;
+        const half = !filled && stars >= i + 0.5;
+        return (
+          <svg key={i} className={`${sz} flex-shrink-0`} viewBox="0 0 20 20" aria-hidden="true">
+            {half ? (
+              <>
+                <defs>
+                  <linearGradient id={`half-${i}`}>
+                    <stop offset="50%" stopColor="#FF6B2B" />
+                    <stop offset="50%" stopColor="#d1c4b8" />
+                  </linearGradient>
+                </defs>
+                <path
+                  fill={`url(#half-${i})`}
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </>
+            ) : (
+              <path
+                fill={filled ? "#FF6B2B" : "#d1c4b8"}
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+              />
+            )}
+          </svg>
+        );
+      })}
+    </span>
+  );
+}
 
 function getRecommendations(excludeId: number): Product[] {
   const filtered = PRODUCTS.filter((p) => p.id !== excludeId);
@@ -17,7 +58,17 @@ function getRecommendations(excludeId: number): Product[] {
   return shuffled.slice(0, 5);
 }
 
-export default function ProductDetail({ product }: { product: Product }) {
+export default function ProductDetail({
+  product,
+  reviews = [],
+  totalReviews = 0,
+  avgStars = 0,
+}: {
+  product: Product;
+  reviews?: Review[];
+  totalReviews?: number;
+  avgStars?: number;
+}) {
   const recommended = useMemo(
     () => getRecommendations(product.id),
     [product.id]
@@ -211,6 +262,133 @@ export default function ProductDetail({ product }: { product: Product }) {
           </p>
         </motion.div>
       </div>
+
+      {/* ======= RECENSIONI (anteprima 3) ======= */}
+      <section
+        className="mt-24 mx-auto max-w-4xl px-6"
+        aria-label="Recensioni dei clienti"
+        data-section="reviews"
+        data-product-id={product.id}
+        data-product-name={product.nome_modello}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-playfair text-2xl font-bold tracking-tight text-warm/85 mb-2">
+            Recensioni
+          </h2>
+          <div className="h-px w-16 bg-sun/60 mb-8" />
+
+          {totalReviews > 0 ? (
+            <>
+              {/* Sommario stelle */}
+              <div
+                className="flex items-center gap-3 mb-10"
+                data-average-stars={avgStars}
+                data-total-reviews={totalReviews}
+              >
+                <StarRating stars={avgStars} size="lg" />
+                <span className="font-playfair text-3xl font-bold text-warm/85">
+                  {avgStars.toFixed(1)}
+                </span>
+                <span className="text-sm text-warm/40">
+                  su {totalReviews} {totalReviews === 1 ? "recensione" : "recensioni"}
+                </span>
+              </div>
+
+              {/* Lista anteprima (max 3) */}
+              <ol className="space-y-6" data-reviews-list>
+                {reviews.map((review, i) => (
+                  <li
+                    key={review.id}
+                    style={{
+                      opacity: 0,
+                      animation: `fadeSlideUp 0.5s ease forwards`,
+                      animationDelay: `${i * 0.08}s`,
+                    }}
+                  >
+                    <article
+                      className="rounded-2xl border border-warm/8 bg-card-bg/40 p-6"
+                      data-review-id={review.id}
+                      data-product-id={review.product_id}
+                      data-product-name={review.product_name}
+                      data-stars={review.stars}
+                      itemScope
+                      itemType="https://schema.org/Review"
+                    >
+                      <div className="flex items-start justify-between gap-4 mb-3">
+                        <div>
+                          <span
+                            className="font-semibold text-warm/80 text-sm"
+                            data-field="username"
+                            itemProp="author"
+                          >
+                            {review.username}
+                          </span>
+                          <div className="mt-1">
+                            <StarRating stars={review.stars} size="sm" />
+                          </div>
+                        </div>
+                        <time
+                          className="text-xs text-warm/35 shrink-0"
+                          dateTime={review.publish_date}
+                          data-field="date"
+                          itemProp="datePublished"
+                        >
+                          {new Date(review.publish_date).toLocaleDateString("it-IT", {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </time>
+                      </div>
+                      <p
+                        className="text-sm text-warm/60 leading-relaxed"
+                        data-field="body"
+                        itemProp="reviewBody"
+                      >
+                        {review.body}
+                      </p>
+                    </article>
+                  </li>
+                ))}
+              </ol>
+
+              {/* CTA vedi tutte */}
+              <div className="mt-8 flex items-center justify-between">
+                <p className="text-sm text-warm/40">
+                  Mostrate {reviews.length} di {totalReviews} recensioni
+                </p>
+                <Link
+                  href={`/prodotto/${product.id}/recensioni`}
+                  className="inline-flex items-center gap-2 rounded-full border border-warm/15 px-6 py-3 text-sm font-medium text-warm/70 transition-all duration-200 hover:border-accent hover:text-accent group"
+                >
+                  Vedi tutte le recensioni
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </>
+          ) : (
+            <p className="text-sm text-warm/40 italic">
+              Nessuna recensione ancora disponibile per questo modello.
+            </p>
+          )}
+        </motion.div>
+      </section>
 
       {/* Recommendations */}
       <section className="mt-28 mx-auto max-w-7xl px-6">
