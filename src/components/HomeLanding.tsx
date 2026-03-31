@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { PRODUCTS } from "@/data/products";
+import SolaraHero from "@/components/SolaraHero";
 
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 
@@ -61,6 +62,9 @@ export default function HomeLanding() {
 
   return (
     <div className="bg-sand">
+      {/* ── FRAME ANIMATION HERO ──────────────────────── */}
+      <SolaraHero />
+
       {/* ── HERO ──────────────────────────────────────── */}
       <section
         ref={parallaxRef}
