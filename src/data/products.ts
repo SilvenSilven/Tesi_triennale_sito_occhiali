@@ -8,6 +8,7 @@ export interface Product {
   montatura: string;
   lenti: string;
   immagine: string;
+  immagini: string[];
   categoria: string;
 }
 
@@ -23,6 +24,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Oro lucido",
     lenti: "Verde pieno",
     immagine: "/products/1.webp",
+    immagini: [
+      "/products/1.webp",
+      "/products/frontale-aperta/1.webp",
+      "/products/frontale-chiusi/1.webp",
+      "/products/laterale/1.webp",
+    ],
     categoria: "Aviator",
   },
   {
@@ -36,6 +43,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Ambra traslucido lucido",
     lenti: "Marrone sfumato",
     immagine: "/products/2.webp",
+    immagini: [
+      "/products/2.webp",
+      "/products/frontale-aperta/2.webp",
+      "/products/frontale-chiusi/2.webp",
+      "/products/laterale/2.webp",
+    ],
     categoria: "Oversize",
   },
   {
@@ -49,6 +62,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Argento lucido",
     lenti: "Azzurro specchiato",
     immagine: "/products/3.webp",
+    immagini: [
+      "/products/3.webp",
+      "/products/frontale-aperta/3.webp",
+      "/products/frontale-chiusi/3.webp",
+      "/products/laterale/3.webp",
+    ],
     categoria: "Round",
   },
   {
@@ -62,6 +81,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Blu traslucido lucido",
     lenti: "Grigio fumo pieno",
     immagine: "/products/4.webp",
+    immagini: [
+      "/products/4.webp",
+      "/products/frontale-aperta/4.webp",
+      "/products/frontale-chiusi/4.webp",
+      "/products/laterale/4.webp",
+    ],
     categoria: "Square",
   },
   {
@@ -75,6 +100,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Grigio antracite opaco",
     lenti: "Blu specchiato",
     immagine: "/products/5.webp",
+    immagini: [
+      "/products/5.webp",
+      "/products/frontale-aperta/5.webp",
+      "/products/frontale-chiusi/5.webp",
+      "/products/laterale/5.webp",
+    ],
     categoria: "Sport",
   },
   {
@@ -88,6 +119,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Avana miele lucido",
     lenti: "Marrone sfumato",
     immagine: "/products/6.webp",
+    immagini: [
+      "/products/6.webp",
+      "/products/frontale-aperta/6.webp",
+      "/products/frontale-chiusi/6.webp",
+      "/products/laterale/6.webp",
+    ],
     categoria: "Cat-Eye",
   },
   {
@@ -101,6 +138,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Argento satinato",
     lenti: "Verde salvia pieno",
     immagine: "/products/7.webp",
+    immagini: [
+      "/products/7.webp",
+      "/products/frontale-aperta/7.webp",
+      "/products/frontale-chiusi/7.webp",
+      "/products/laterale/7.webp",
+    ],
     categoria: "Geometric",
   },
   {
@@ -114,6 +157,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Oro lucido con terminali effetto legno",
     lenti: "Verde bottiglia",
     immagine: "/products/8.webp",
+    immagini: [
+      "/products/8.webp",
+      "/products/frontale-aperta/8.webp",
+      "/products/frontale-chiusi/8.webp",
+      "/products/laterale/8.webp",
+    ],
     categoria: "Rimless",
   },
   {
@@ -127,6 +176,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Nero opaco",
     lenti: "Multicolor specchiato",
     immagine: "/products/9.webp",
+    immagini: [
+      "/products/9.webp",
+      "/products/frontale-aperta/9.webp",
+      "/products/frontale-chiusi/9.webp",
+      "/products/laterale/9.webp",
+    ],
     categoria: "Sport",
   },
   {
@@ -140,6 +195,12 @@ export const PRODUCTS: Product[] = [
     montatura: "Oro lucido",
     lenti: "Marrone chiaro sfumato",
     immagine: "/products/10.webp",
+    immagini: [
+      "/products/10.webp",
+      "/products/frontale-aperta/10.webp",
+      "/products/frontale-chiusi/10.webp",
+      "/products/laterale/10.webp",
+    ],
     categoria: "Aviator",
   },
 ];

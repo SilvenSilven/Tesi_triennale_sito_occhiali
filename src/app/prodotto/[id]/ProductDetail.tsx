@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Product, PRODUCTS } from "@/data/products";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 
@@ -22,6 +22,13 @@ export default function ProductDetail({ product }: { product: Product }) {
     () => getRecommendations(product.id),
     [product.id]
   );
+  const [activeIdx, setActiveIdx] = useState(0);
+  const immagini = product.immagini;
+
+  const goPrev = () => setActiveIdx((i) => (i - 1 + immagini.length) % immagini.length);
+  const goNext = () => setActiveIdx((i) => (i + 1) % immagini.length);
+
+  const viste = ["Principale", "Frontale aperta", "Frontale chiusa", "Laterale"];
 
   const specs = [
     { label: "Montatura", value: product.montatura },
@@ -55,25 +62,83 @@ export default function ProductDetail({ product }: { product: Product }) {
       {/* Product hero */}
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Image */}
+          {/* Image carousel */}
           <motion.div
-            className="relative aspect-square overflow-hidden rounded-3xl bg-[#F5EDE3] border border-warm/5"
+            className="flex flex-col gap-4"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <Image
-              src={product.immagine}
-              alt={product.nome_modello}
-              fill
-              className="object-contain p-10 md:p-16"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
-            />
-            {/* Category badge */}
-            <span className="absolute top-6 left-6 rounded-full bg-sand/80 backdrop-blur-sm px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-warm/50">
-              {product.categoria}
-            </span>
+            {/* Main image */}
+            <div className="relative aspect-square overflow-hidden rounded-3xl bg-[#F5EDE3] border border-warm/5">
+              {immagini.map((src, i) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={`${product.nome_modello} — ${viste[i] ?? `Vista ${i + 1}`}`}
+                  fill
+                  className={`object-contain p-10 md:p-16 transition-opacity duration-400 ${
+                    i === activeIdx ? "opacity-100" : "opacity-0"
+                  }`}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority={i === 0}
+                />
+              ))}
+
+              {/* Category badge */}
+              <span className="absolute top-6 left-6 rounded-full bg-sand/80 backdrop-blur-sm px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-warm/50 z-10">
+                {product.categoria}
+              </span>
+
+              {/* Vista label */}
+              <span className="absolute bottom-6 left-0 right-0 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-warm/40 z-10">
+                {viste[activeIdx] ?? `Vista ${activeIdx + 1}`}
+              </span>
+
+              {/* Prev / Next arrows */}
+              <button
+                onClick={goPrev}
+                aria-label="Immagine precedente"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-sand/80 backdrop-blur-sm border border-warm/10 text-warm/60 shadow-sm transition hover:bg-sand hover:text-accent"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                  <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
+                </svg>
+              </button>
+              <button
+                onClick={goNext}
+                aria-label="Immagine successiva"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-sand/80 backdrop-blur-sm border border-warm/10 text-warm/60 shadow-sm transition hover:bg-sand hover:text-accent"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                  <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Thumbnail strip */}
+            <div className="flex gap-3 justify-center">
+              {immagini.map((src, i) => (
+                <button
+                  key={src}
+                  onClick={() => setActiveIdx(i)}
+                  aria-label={viste[i] ?? `Vista ${i + 1}`}
+                  className={`relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl border-2 transition-all duration-200 bg-[#F5EDE3] ${
+                    i === activeIdx
+                      ? "border-accent shadow-[0_0_12px_#FF6B2B44]"
+                      : "border-warm/10 hover:border-warm/30"
+                  }`}
+                >
+                  <Image
+                    src={src}
+                    alt={viste[i] ?? `Vista ${i + 1}`}
+                    fill
+                    className="object-contain p-2"
+                    sizes="64px"
+                  />
+                </button>
+              ))}
+            </div>
           </motion.div>
 
           {/* Details */}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useState, useCallback } from "react";
 import { PRODUCTS } from "@/data/products";
 
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
@@ -16,6 +17,70 @@ const cardVariants = {
     transition: { delay: i * 0.08, duration: 0.6, ease: EASE },
   }),
 };
+
+function HoverCarousel({
+  immagini,
+  nome_modello,
+}: {
+  immagini: string[];
+  nome_modello: string;
+}) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startCycle = useCallback(() => {
+    setActiveIdx(0);
+    let idx = 0;
+    intervalRef.current = setInterval(() => {
+      idx = (idx + 1) % immagini.length;
+      setActiveIdx(idx);
+    }, 600);
+  }, [immagini.length]);
+
+  const stopCycle = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    setActiveIdx(0);
+  }, []);
+
+  return (
+    <div
+      className="relative aspect-square overflow-hidden rounded-2xl bg-[#F5EDE3] border border-warm/5"
+      onMouseEnter={startCycle}
+      onMouseLeave={stopCycle}
+      onTouchStart={startCycle}
+      onTouchEnd={stopCycle}
+    >
+      {immagini.map((src, i) => (
+        <Image
+          key={src}
+          src={src}
+          alt={`${nome_modello} — vista ${i + 1}`}
+          fill
+          className={`object-contain p-6 transition-opacity duration-300 ${
+            i === activeIdx ? "opacity-100" : "opacity-0"
+          }`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          priority={i === 0}
+        />
+      ))}
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 pointer-events-none">
+        {immagini.map((_, i) => (
+          <span
+            key={i}
+            className={`block h-1.5 w-1.5 rounded-full transition-all duration-300 ${
+              i === activeIdx ? "bg-warm/70 scale-125" : "bg-warm/25"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function CatalogoPage() {
   return (
@@ -64,25 +129,22 @@ export default function CatalogoPage() {
                 href={`/prodotto/${product.id}`}
                 className="group block"
               >
-                {/* Image container */}
-                <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#F5EDE3] border border-warm/5">
-                  <Image
-                    src={product.immagine}
-                    alt={product.nome_modello}
-                    fill
-                    className="object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                {/* Image carousel on hover */}
+                <div className="relative">
+                  <HoverCarousel
+                    immagini={product.immagini}
+                    nome_modello={product.nome_modello}
                   />
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 flex items-end justify-center pb-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 flex items-end justify-center pb-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
                     <span className="rounded-full bg-warm/90 px-5 py-2 text-xs font-semibold tracking-wide text-sand">
                       Scopri →
                     </span>
                   </div>
 
                   {/* Category tag */}
-                  <span className="absolute top-4 left-4 rounded-full bg-sand/80 backdrop-blur-sm px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-warm/50">
+                  <span className="absolute top-4 left-4 rounded-full bg-sand/80 backdrop-blur-sm px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-warm/50 pointer-events-none">
                     {product.categoria}
                   </span>
                 </div>
