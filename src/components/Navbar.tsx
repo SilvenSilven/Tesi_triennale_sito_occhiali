@@ -1,38 +1,45 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contatti", href: "#contatti" },
+  { label: "Home", href: "/" },
+  { label: "Catalogo", href: "/catalogo" },
+  { label: "Chi siamo", href: "/chi-siamo" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="fixed top-0 left-0 z-50 w-full bg-sand/70 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
         {/* Logo */}
-        <a
-          href="#"
+        <Link
+          href="/"
           className="font-playfair text-xl font-bold tracking-[0.25em] text-warm/90 select-none"
         >
           SOLARA
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
-                className="text-sm tracking-wide text-warm/60 transition-colors duration-300 hover:text-accent"
+                className={`text-sm tracking-wide transition-colors duration-300 hover:text-accent ${
+                  pathname === link.href
+                    ? "text-accent font-medium"
+                    : "text-warm/60"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -76,13 +83,17 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.08 * i }}
                 >
-                  <a
+                  <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="font-playfair text-lg tracking-wide text-warm/70 transition-colors duration-300 hover:text-accent"
+                    className={`font-playfair text-lg tracking-wide transition-colors duration-300 hover:text-accent ${
+                      pathname === link.href
+                        ? "text-accent"
+                        : "text-warm/70"
+                    }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>

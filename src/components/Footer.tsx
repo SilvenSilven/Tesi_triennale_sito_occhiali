@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer id="contatti" className="bg-sand px-6 pb-10 pt-24">
+    <footer className="bg-sand px-6 pb-10 pt-24">
       <div className="mx-auto max-w-6xl">
         {/* Decorative separator */}
         <div className="mx-auto mb-16 h-px w-24 bg-sun/60" />
@@ -38,17 +39,17 @@ export default function Footer() {
             </h4>
             <ul className="mt-4 flex flex-col gap-3">
               {[
-                { label: "Collezioni", href: "#pricing" },
-                { label: "Tecnologia", href: "#features" },
-                { label: "Contatti", href: "#contatti" },
+                { label: "Home", href: "/" },
+                { label: "Catalogo", href: "/catalogo" },
+                { label: "Chi siamo", href: "/chi-siamo" },
               ].map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-warm/55 transition-colors duration-300 hover:text-accent"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -91,15 +92,6 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-warm/5 pt-8 text-xs text-warm/30 md:flex-row">
           <p>&copy; 2026 Solara. Tutti i diritti riservati.</p>
-          <p className="flex items-center gap-1">
-            Crafted with
-            <span className="inline-block text-accent">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 10.5l-.87-.792C2.28 7.188 1 5.964 1 4.5 1 3.228 2.007 2.25 3.3 2.25c.735 0 1.44.345 1.9.888a2.593 2.593 0 011.9-.888C8.393 2.25 9.4 3.228 9.4 4.5c0 1.464-1.28 2.688-4.13 5.208L6 10.5z" />
-              </svg>
-            </span>
-            under the Mediterranean sun
-          </p>
         </div>
       </div>
     </footer>

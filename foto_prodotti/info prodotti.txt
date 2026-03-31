@@ -1,0 +1,101 @@
+NOME FILE OCCHIALE	dati
+1: 	"[
+  {
+    ""nome_modello"": ""Aureum Pilot Verde"",
+    ""descrizione "": ""Aureum Pilot Verde è un occhiale da sole dalla silhouette aviator rivisitata in chiave contemporanea, con una montatura in metallo sottile che valorizza il doppio ponte e amplifica l’eleganza del frontale. La forma a goccia, ampia ma bilanciata, richiama l’heritage eyewear iconico, mentre la struttura dorata aggiunge una nota sofisticata e luminosa. Le lenti verdi piene accentuano l’identità del modello con un contrasto raffinato, deciso ma facile da indossare ogni giorno. L’impatto visivo è pulito, autorevole e trasversale: un design unisex pensato per chi ama accessori senza tempo ma con forte presenza estetica. La vestibilità percepita è confortevole e stabile, con naselli regolabili che alleggeriscono l’appoggio e rendono il fit armonioso su diversi profili del viso. Ideale in città, in viaggio o nel tempo libero, trasmette un’eleganza rilassata, solare e distintiva."",
+    ""prezzo"": ""€ 229"",
+    ""geofit"": ""Vestibilità universale"",
+    ""montatura"": ""Oro lucido"",
+    ""lenti"": ""Verde pieno""
+  }
+]"
+2: 	"[
+  {
+    ""nome_modello"": ""Nebula Square Blu"",
+    ""descrizione "": ""Nebula Square Blu interpreta l’occhiale da sole statement in una versione contemporanea e tecnologica, con una montatura squadrata dai volumi pieni e dalle linee addolcite da angoli smussati. Il frontale ampio, scolpito in acetato traslucido blu notte, crea profondità visiva e dona al modello una presenza decisa ma sofisticata. Le aste generose rafforzano il carattere architettonico dell’insieme, mentre le lenti scure amplificano l’effetto urbano e premium. L’ispirazione richiama il mondo street-luxury e il design eyewear più evoluto, con un risultato distintivo, contemporaneo e perfettamente spendibile in chiave unisex. La vestibilità percepita è avvolgente e stabile, pensata per offrire comfort visivo e una presenza estetica importante senza risultare eccessiva. Ideale per look metropolitani, weekend travel e styling casual ricercati, trasmette una sensazione di sicurezza, modernità e stile deciso, con un’identità forte ma versatile."",
+    ""prezzo"": ""€ 319"",
+    ""geofit"": ""Vestibilità universale"",
+    ""montatura"": ""Blu traslucido lucido"",
+    ""lenti"": ""Grigio fumo pieno""
+  }
+]"
+3: 	"[
+  {
+    ""nome_modello"": ""Lunaris Ice Mirror"",
+    ""descrizione "": ""Lunaris Ice Mirror è un occhiale da sole dalla forma rotonda ampia, alleggerita da una costruzione in metallo sottile che esprime essenzialità, precisione e raffinatezza contemporanea. Il design richiama l’estetica rétro degli archivi eyewear, reinterpretata con proporzioni più pulite e una presenza luminosa grazie alla finitura argento. Le lenti azzurro specchiate amplificano l’impatto visivo con un effetto fresco, arioso e distintivo, capace di catturare la luce con discreta eleganza. Il ponte curvo e i naselli regolabili suggeriscono una vestibilità comoda e ben calibrata, adatta a un utilizzo prolungato e armoniosa su diversi lineamenti. Il risultato è un modello unisex dal fascino leggero ma riconoscibile, ideale per la stagione estiva, per look da viaggio, citywear rilassato o abbinamenti dal gusto minimal chic. L’estetica generale trasmette una sensazione di pulizia formale, libertà e sofisticazione luminosa, con un carattere sobrio ma altamente distintivo."",
+    ""prezzo"": ""€ 189"",
+    ""geofit"": ""Vestibilità universale"",
+    ""montatura"": ""Argento lucido"",
+    ""lenti"": ""Azzurro specchiato""
+  }
+]"
+4: 	"[
+  {
+    ""nome_modello"": ""Torque Shield Blue"",
+    ""descrizione "": ""Torque Shield Blue è un occhiale da sole dal design avvolgente a maschera, pensato per un’estetica sport-performance dal carattere deciso e contemporaneo. La lente unica panoramica segue una linea fluida e protettiva, con profilo sagomato che amplia la copertura visiva e rafforza l’impatto tecnico del modello. La montatura grigio antracite opaco, con aste scolpite e dettagli dinamici, richiama il mondo cycling, outdoor e active lifestyle, ma viene reinterpretata con una pulizia formale che lo rende perfetto anche per uno streetwear evoluto. Le lenti blu specchiate intensificano la presenza scenica con riflessi freddi e moderni, trasmettendo energia, velocità e precisione. La vestibilità percepita è stabile, aderente e protettiva, ideale per volti che cercano contenimento, comfort e una sensazione di sicurezza durante l’uso prolungato. Unisex nell’attitudine, è perfetto per guida, attività all’aperto, sport leggeri e look casual tecnici, con un’estetica grintosa, futuristica e altamente riconoscibile."",
+    ""prezzo"": ""€ 179"",
+    ""geofit"": ""Fit a ponte alto"",
+    ""montatura"": ""Grigio antracite opaco"",
+    ""lenti"": ""Blu specchiato""
+  }
+]"
+5: 	"[
+  {
+    ""nome_modello"": ""Selene Havana Cat"",
+    ""descrizione "": ""Selene Havana Cat è un occhiale da sole dalla silhouette cat-eye morbida e scolpita, pensato per esaltare il volto con un’eleganza decisa ma sofisticata. La montatura in acetato avana sfumato, ricca di sfaccettature miele, tabacco e cioccolato, crea un effetto visivo caldo e luminoso che valorizza il design con naturale raffinatezza. Le linee sono femminili senza eccessi, con frontale ampio, angoli sollevati e volumi ben calibrati che slanciano lo sguardo e donano presenza al viso. L’ispirazione richiama il glamour rétro delle icone anni ’50 e ’60, reinterpretato in chiave attuale per un risultato premium e facilmente indossabile. La vestibilità percepita è confortevole e avvolgente, ideale per accompagnare con stile sia look cittadini sia abbinamenti da viaggio o weekend. Le lenti marroni sfumate completano il modello con una morbidezza visiva elegante, trasmettendo un’estetica raffinata, femminile e disinvolta, perfetta per chi cerca un accessorio distintivo ma versatile."",
+    ""prezzo"": ""€ 265"",
+    ""geofit"": ""Vestibilità universale"",
+    ""montatura"": ""Avana miele lucido"",
+    ""lenti"": ""Marrone sfumato""
+  }
+]"
+6: 	"[
+  {
+    ""nome_modello"": ""Astra Verde Ottagono"",
+    ""descrizione "": ""Astra Verde Ottagono è un occhiale da sole in metallo dalla silhouette geometrica morbida, definita da lenti ottagonali arrotondate che fondono rigore grafico e leggerezza visiva. La montatura argento, sottile e luminosa, disegna il volto con precisione discreta, mentre il ponte sagomato e i naselli regolabili contribuiscono a un equilibrio elegante e funzionale. Le lenti verde salvia donano al modello una personalità raffinata, fresca e contemporanea, con un impatto visivo sobrio ma immediatamente riconoscibile. L’ispirazione richiama il minimalismo rétro degli anni ’70, reinterpretato in una chiave più essenziale e urbana, perfetta per chi cerca un accessorio distintivo ma facile da indossare. La vestibilità percepita è confortevole, ariosa e versatile, adatta a diversi lineamenti grazie alla struttura leggera e ben calibrata. Unisex per vocazione, si presta con naturalezza a look cittadini, styling estivi, weekend travel e guardaroba dal gusto pulito, trasmettendo un’estetica colta, luminosa e rilassata."",
+    ""prezzo"": ""€ 198"",
+    ""geofit"": ""Vestibilità universale"",
+    ""montatura"": ""Argento satinato"",
+    ""lenti"": ""Verde salvia pieno""
+  }
+]"
+7: 	"[
+  {
+    ""nome_modello"": ""Auric Wood Green"",
+    ""descrizione "": ""Auric Wood Green è un occhiale da sole dal design rimless con lenti tonde oversize, pensato per un’eleganza leggera e distintiva che unisce minimalismo contemporaneo e suggestioni naturali. La costruzione senza cornice alleggerisce il profilo sul viso e lascia protagoniste le ampie lenti verdi, creando un impatto visivo raffinato, arioso e molto ricercato. Il ponte e le aste in finitura oro lucido aggiungono luminosità e precisione formale, mentre i terminali effetto legno introducono un dettaglio caldo e sofisticato che rende il modello immediatamente riconoscibile. L’ispirazione richiama il glamour rétro reinterpretato in chiave premium, con una presenza estetica delicata ma di forte personalità. La vestibilità percepita è confortevole e ben bilanciata grazie ai naselli regolabili e alla struttura sottile, ideale per accompagnare il viso con naturalezza. Unisex per attitudine, è perfetto per look estivi, resortwear, city style essenziale e occasioni in cui si desidera un accessorio elegante, luminoso e dal fascino rilassato."",
+    ""prezzo"": ""€ 239"",
+    ""geofit"": ""Vestibilità universale"",
+    ""montatura"": ""Oro lucido con terminali effetto legno"",
+    ""lenti"": ""Verde bottiglia""
+  }
+]"
+8: 	"[
+  {
+    ""nome_modello"": ""Vector Prism Shield"",
+    ""descrizione "": ""Vector Prism Shield è un occhiale da sole a maschera monolente dal profilo essenziale e altamente performante, progettato per chi ricerca un’estetica tecnica, contemporanea e immediatamente riconoscibile. La lente panoramica ampia, leggermente squadrata nella parte superiore e sagomata sul ponte, offre una copertura visiva estesa e un impatto scenico forte, enfatizzato dalla finitura specchiata cangiante nei toni verde, azzurro e viola. La montatura nera opaca, sottile e aerodinamica, accompagna il design con discrezione strutturale, lasciando alla lente il ruolo da protagonista. L’ispirazione arriva dal mondo performance, cycling e activewear evoluto, ma il risultato finale si presta perfettamente anche a look street dal gusto futuristico. La vestibilità percepita è stabile, aderente e leggera, pensata per seguire il volto con comfort e precisione anche durante l’uso dinamico. Unisex nell’attitudine, è ideale per outdoor, viaggio, guida e styling sport-urban, trasmettendo energia, velocità e un’identità visiva netta e innovativa."",
+    ""prezzo"": ""€ 169"",
+    ""geofit"": ""Fit a ponte alto"",
+    ""montatura"": ""Nero opaco"",
+    ""lenti"": ""Multicolor specchiato""
+  }
+]"
+9: 	"[
+  {
+    ""nome_modello"": ""Helios Gold Fade"",
+    ""descrizione "": ""Helios Gold Fade è un occhiale da sole aviator dalla costruzione sottile e impeccabilmente proporzionata, pensato per chi cerca un classico intramontabile con un’eleganza più calda e sofisticata. La montatura in metallo dorato lucido valorizza il doppio ponte e la tipica forma a goccia, restituendo un profilo leggero ma visivamente autorevole. Le lenti marrone chiaro sfumato ammorbidiscono l’impatto del frontale e aggiungono una componente luminosa, raffinata e versatile, ideale per accompagnare il viso con naturalezza. L’ispirazione richiama l’heritage dell’eyewear iconico da aviatore, reinterpretato in chiave premium attraverso finiture essenziali e una palette solare. La vestibilità percepita è stabile, confortevole e ben bilanciata grazie ai naselli regolabili e alla struttura sottile che alleggerisce l’appoggio. Unisex per vocazione, si adatta con disinvoltura a contesti urbani, viaggi, driving look e styling estivi eleganti, trasmettendo una sensazione di lusso discreto, sicurezza e fascino senza tempo."",
+    ""prezzo"": ""€ 239"",
+    ""geofit"": ""Vestibilità universale"",
+    ""montatura"": ""Oro lucido"",
+    ""lenti"": ""Marrone chiaro sfumato""
+  }
+]"
+10: 	"[
+  {
+    ""nome_modello"": ""Amber Crest Oversize"",
+    ""descrizione "": ""Amber Crest Oversize è un occhiale da sole dalla forte personalità, costruito su una montatura squadrata oversize in acetato traslucido color ambra. Il frontale ampio e scolpito è reso ancora più distintivo dall’inserto geometrico aperto sul ponte superiore, dettaglio che dona ritmo architettonico e un’impronta fashion immediatamente riconoscibile. Le linee decise, bilanciate da profili morbidi e volumi generosi, richiamano l’estetica rétro anni ’70 reinterpretata in chiave contemporanea e sofisticata. Le lenti marrone sfumato accompagnano il design con una presenza visiva calda, luminosa e raffinata, perfetta per esaltare la trasparenza mielata della montatura. La vestibilità percepita è avvolgente, stabile e confortevole, ideale per chi desidera un accessorio protagonista capace di incorniciare il viso con carattere. Unisex nell’attitudine, si presta a look resort, city style ricercato e outfit estivi dal gusto bold, trasmettendo un’estetica solare, lussuosa e sicura di sé."",
+    ""prezzo"": ""€ 289"",
+    ""geofit"": ""Vestibilità universale"",
+    ""montatura"": ""Ambra traslucido lucido"",
+    ""lenti"": ""Marrone sfumato""
+  }
+]"
