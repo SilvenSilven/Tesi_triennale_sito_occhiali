@@ -9,8 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        sand: "#FFF8F0",
+        warm: "#1A1200",
+        accent: "#FF6B2B",
+        sun: "#FFD166",
+        sea: "#00B4A6",
+        "card-bg": "#FFF0E0",
+      },
+      fontFamily: {
+        playfair: ["Playfair Display", "serif"],
+        body: ["Inter", "sans-serif"],
       },
     },
   },
