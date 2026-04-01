@@ -1,0 +1,62 @@
+Distribuzione is_published:
+  False: 2358
+  True: 30
+
+Totale recensioni: 2388
+Analisi n-gram (6-10 parole)...
+N-gram ripetuti (>=5x): 943
+
+=== TOP 50 FRASI RIPETUTE ===
+     8x | Þ che telaio leggero e pulito
+     8x | che profilo rimless molto arioso con
+     8x | non mi dimentico mai di averlo
+     8x | mi dimentico mai di averlo addosso.
+     8x | non mi dimentico mai di averlo addosso.
+     8x | fuori da certi contesti sono impegnativi.
+     8x | non sembrano un travestimento se il
+     8x | sembrano un travestimento se il resto
+     8x | un travestimento se il resto del
+     8x | travestimento se il resto del look
+     8x | non sembrano un travestimento se il resto
+     8x | sembrano un travestimento se il resto del
+     8x | un travestimento se il resto del look
+     8x | non sembrano un travestimento se il resto del
+     8x | sembrano un travestimento se il resto del look
+     8x | non sembrano un travestimento se il resto del look
+     8x | e la costruzione da occhiale tecnico
+     8x | fuori dal contesto sportivo lo percepisco
+     8x | dal contesto sportivo lo percepisco eccessivo.
+     8x | fuori dal contesto sportivo lo percepisco eccessivo.
+     8x | e su di me si sente.
+     8x | e hanno una presenza davvero forte.
+     8x | con schermo iridescente crea un insieme
+     8x | schermo iridescente crea un insieme davvero
+     8x | con schermo iridescente crea un insieme davvero
+     8x | la lente unica fa tutto il
+     8x | lente unica fa tutto il lavoro
+     8x | unica fa tutto il lavoro che
+     8x | fa tutto il lavoro che deve
+     8x | la lente unica fa tutto il lavoro
+     8x | lente unica fa tutto il lavoro che
+     8x | unica fa tutto il lavoro che deve
+     8x | la lente unica fa tutto il lavoro che
+     8x | lente unica fa tutto il lavoro che deve
+     8x | la lente unica fa tutto il lavoro che deve
+     8x | non passano inosservati in nessun modo.
+     8x | il ponte alto resta una questione
+     8x | ponte alto resta una questione seria.
+     8x | il ponte alto resta una questione seria.
+     7x | si portano pi¨ facilmente del previsto.
+     7x | Non lo bocci‗, ma non Þ
+     7x | Sembra personale giÓ al primo sguardo,
+     7x | Sembra pensato per essere visto da
+     7x | Riesce a sembrare elegante senza darsi
+     7x | ponte non Þ amico di tutti
+     7x | non Þ amico di tutti i
+     7x | ponte non Þ amico di tutti i
+     7x | Rende persino un look semplice pi¨
+     7x | temevo che accessorio protagonista fosse troppo
+     7x | che accessorio protagonista fosse troppo evidente.
+
+Recensioni con almeno 1 frase ripetuta (>=5x): 1060/2388
+Pattern >=10x: 0

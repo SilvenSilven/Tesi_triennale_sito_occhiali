@@ -1,0 +1,5 @@
+=== FRASI COMPLETE PI� RIPETUTE (>=10x) ===
+
+Totale frasi uniche con >=10x: 0
+Totale frasi uniche con >=5x: 0
+Totale frasi uniche con >=3x: 37

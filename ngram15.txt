@@ -1,0 +1,62 @@
+Distribuzione is_published:
+  False: 2358
+  True: 30
+
+Totale recensioni: 2388
+Analisi n-gram (6-10 parole)...
+N-gram ripetuti (>=5x): 1251
+
+=== TOP 50 FRASI RIPETUTE ===
+     9x | sul mio viso quadrato la forma
+     9x | mio viso quadrato la forma tonda
+     9x | viso quadrato la forma tonda non
+     9x | quadrato la forma tonda non Þ
+     9x | la forma tonda non Þ la
+     9x | forma tonda non Þ la pi¨
+     9x | tonda non Þ la pi¨ facile.
+     9x | sul mio viso quadrato la forma tonda
+     9x | mio viso quadrato la forma tonda non
+     9x | viso quadrato la forma tonda non Þ
+     9x | quadrato la forma tonda non Þ la
+     9x | la forma tonda non Þ la pi¨
+     9x | forma tonda non Þ la pi¨ facile.
+     9x | sul mio viso quadrato la forma tonda non
+     9x | mio viso quadrato la forma tonda non Þ
+     9x | viso quadrato la forma tonda non Þ la
+     9x | quadrato la forma tonda non Þ la pi¨
+     9x | la forma tonda non Þ la pi¨ facile.
+     9x | sul mio viso quadrato la forma tonda non Þ
+     9x | mio viso quadrato la forma tonda non Þ la
+     9x | viso quadrato la forma tonda non Þ la pi¨
+     9x | quadrato la forma tonda non Þ la pi¨ facile.
+     9x | sul mio viso quadrato la forma tonda non Þ la
+     9x | mio viso quadrato la forma tonda non Þ la pi¨
+     9x | viso quadrato la forma tonda non Þ la pi¨ facile.
+     9x | lo specchio richiede un po' di
+     9x | con specchio ghiaccio crea un insieme
+     9x | specchio ghiaccio crea un insieme davvero
+     9x | con specchio ghiaccio crea un insieme davvero
+     9x | su visi molto squadrati vanno provati
+     9x | non li trovo ideali per guidare.
+     9x | il grigio scuro delle lenti e
+     9x | su visi rotondi vanno provati con
+     9x | parlano chiaramente il linguaggio dello sport.
+     9x | fit a ponte alto non Þ
+     9x | nel quotidiano classico per me Þ
+     9x | quotidiano classico per me Þ quasi
+     9x | classico per me Þ quasi troppo.
+     9x | nel quotidiano classico per me Þ quasi
+     9x | quotidiano classico per me Þ quasi troppo.
+     9x | nel quotidiano classico per me Þ quasi troppo.
+     9x | Þ che impianto shield molto deciso
+     9x | Ha una forza visiva quasi da
+     8x | Sa essere protagonista in modo molto
+     8x | ma non Þ il paio che
+     8x | Þ il pi¨ universale nei mesi
+     8x | Non lo rifiuto, ma non Þ
+     8x | e la parte migliore Þ che
+     8x | non sono facili con tutti i
+     8x | in un modo che apprezzo molto.
+
+Recensioni con almeno 1 frase ripetuta (>=5x): 1262/2388
+Pattern >=10x: 0

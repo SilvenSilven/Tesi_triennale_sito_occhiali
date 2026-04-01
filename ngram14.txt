@@ -1,0 +1,62 @@
+Distribuzione is_published:
+  False: 2358
+  True: 30
+
+Totale recensioni: 2388
+Analisi n-gram (6-10 parole)...
+N-gram ripetuti (>=5x): 1339
+
+=== TOP 50 FRASI RIPETUTE ===
+     9x | le lenti marroni sfumate e la
+     9x | che ho capito il resto: il
+     9x | funzionano meglio dal vivo che in
+     9x | il doppio ponte sul mio naso
+     9x | doppio ponte sul mio naso non
+     9x | ponte sul mio naso non Þ
+     9x | il doppio ponte sul mio naso non
+     9x | doppio ponte sul mio naso non Þ
+     9x | il doppio ponte sul mio naso non Þ
+     9x | la montatura cosý fine mi trasmette
+     9x | montatura cosý fine mi trasmette una
+     9x | cosý fine mi trasmette una delicatezza
+     9x | fine mi trasmette una delicatezza che
+     9x | mi trasmette una delicatezza che non
+     9x | trasmette una delicatezza che non adoro.
+     9x | la montatura cosý fine mi trasmette una
+     9x | montatura cosý fine mi trasmette una delicatezza
+     9x | cosý fine mi trasmette una delicatezza che
+     9x | fine mi trasmette una delicatezza che non
+     9x | mi trasmette una delicatezza che non adoro.
+     9x | la montatura cosý fine mi trasmette una delicatezza
+     9x | montatura cosý fine mi trasmette una delicatezza che
+     9x | cosý fine mi trasmette una delicatezza che non
+     9x | fine mi trasmette una delicatezza che non adoro.
+     9x | la montatura cosý fine mi trasmette una delicatezza che
+     9x | montatura cosý fine mi trasmette una delicatezza che non
+     9x | cosý fine mi trasmette una delicatezza che non adoro.
+     9x | la montatura cosý fine mi trasmette una delicatezza che non
+     9x | montatura cosý fine mi trasmette una delicatezza che non adoro.
+     9x | Sul viso appare pi¨ leggero del
+     9x | assomigliano a un archetipo che esiste
+     9x | a un archetipo che esiste giÓ
+     9x | un archetipo che esiste giÓ da
+     9x | archetipo che esiste giÓ da tempo.
+     9x | assomigliano a un archetipo che esiste giÓ
+     9x | a un archetipo che esiste giÓ da
+     9x | un archetipo che esiste giÓ da tempo.
+     9x | assomigliano a un archetipo che esiste giÓ da
+     9x | a un archetipo che esiste giÓ da tempo.
+     9x | assomigliano a un archetipo che esiste giÓ da tempo.
+     9x | Non tradisce mai la promessa del
+     9x | la lente chiara in basso e
+     9x | lente chiara in basso e pi¨
+     9x | chiara in basso e pi¨ intensa
+     9x | in basso e pi¨ intensa sopra
+     9x | vorrei qualche segnale in pi¨ di
+     9x | qualche segnale in pi¨ di unicitÓ.
+     9x | la lente chiara in basso e pi¨
+     9x | lente chiara in basso e pi¨ intensa
+     9x | chiara in basso e pi¨ intensa sopra
+
+Recensioni con almeno 1 frase ripetuta (>=5x): 1295/2388
+Pattern >=10x: 0

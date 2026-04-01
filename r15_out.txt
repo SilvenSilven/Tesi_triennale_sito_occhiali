@@ -1,0 +1,7 @@
+Connessione al DB...
+Caricate: 2388
+Recensioni da aggiornare: 98
+  Batch 1: 50/98
+  Batch 2: 48/98
+Aggiornate: 98 | Errori: 0
+Round 15 OK

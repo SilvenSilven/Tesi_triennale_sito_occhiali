@@ -1,0 +1,17 @@
+Connessione al DB...
+Traceback (most recent call last):
+Caricate: 2388
+Recensioni da aggiornare: 251
+  Batch  1: 50/251
+  Batch  2: 100/251
+  Batch  3: 150/251
+  Batch  4: 200/251
+  Batch  5: 250/251
+  Batch  6: 251/251
+
+Aggiornate: 251 | Errori: 0
+  File "D:\Desktop\SITI TESI\sito_occhiali\fix_residuals_r12.py", line 470, in <module>
+    print(f"  '{p[:60]}' \u2192 {cnt}x")
+  File "C:\Python310\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 33: character maps to <undefined>
