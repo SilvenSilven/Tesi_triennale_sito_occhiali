@@ -1,5 +1,0 @@
-Connessione al DB...
-Caricate: 2388
-Recensioni da aggiornare: 0
-Aggiornate: 0 | Errori: 0
-Round 16 OK

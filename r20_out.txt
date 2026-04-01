@@ -1,8 +1,0 @@
-Connessione al DB...
-Caricate: 2388
-Recensioni da aggiornare: 124
-  Batch 1: 50/124
-  Batch 2: 50/124
-  Batch 3: 24/124
-Aggiornate: 124 | Errori: 0
-Round 20 OK
