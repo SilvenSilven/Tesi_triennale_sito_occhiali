@@ -11,15 +11,16 @@ import {
 } from "framer-motion";
 
 /* ── Constants ──────────────────────────────────────── */
-const FIRST_FRAME = 28;
-const LAST_FRAME = 191;
-const TOTAL_FRAMES = LAST_FRAME - FIRST_FRAME + 1; // 164
-const MAX_INDEX = TOTAL_FRAMES - 1; // 163
+const TOTAL_FRAMES = 82;
+const MAX_INDEX = TOTAL_FRAMES - 1; // 81
 
 const FRAME_PATHS = Array.from({ length: TOTAL_FRAMES }, (_, i) => {
-  const idx = String(i + FIRST_FRAME).padStart(3, "0");
-  return `/frames/frame_${idx}_delay-0.041s.jpg`;
+  const idx = String(i).padStart(3, "0");
+  return `/frames-optimized/frame_${idx}.webp`;
 });
+
+/* How many frames to load before showing the page */
+const INITIAL_BATCH = 12;
 
 /* ── Narrative beats ────────────────────────────────── */
 interface Beat {
@@ -213,39 +214,48 @@ export default function SolaraHero() {
     Math.min(MAX_INDEX, Math.max(0, Math.floor(v * MAX_INDEX)))
   );
 
-  /* ── Preload images ─────────────────────────────── */
+  /* ── Preload images (progressive) ─────────────────── */
   useEffect(() => {
-    let loadedCount = 0;
-    const images: HTMLImageElement[] = [];
     let cancelled = false;
+    const images: HTMLImageElement[] = new Array(TOTAL_FRAMES);
 
-    FRAME_PATHS.forEach((src, i) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        if (cancelled) return;
-        loadedCount++;
-        setLoadProgress(Math.round((loadedCount / TOTAL_FRAMES) * 100));
-        if (loadedCount === TOTAL_FRAMES) {
-          imagesRef.current = images;
-          setLoaded(true);
-        }
-      };
-      img.onerror = () => {
-        if (cancelled) return;
-        loadedCount++;
-        setLoadProgress(Math.round((loadedCount / TOTAL_FRAMES) * 100));
-        if (loadedCount === TOTAL_FRAMES) {
-          imagesRef.current = images;
-          setLoaded(true);
-        }
-      };
-      images[i] = img;
-    });
+    function loadImage(i: number): Promise<void> {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.decoding = "async";
+        img.src = FRAME_PATHS[i];
+        const done = () => {
+          if (cancelled) return resolve();
+          images[i] = img;
+          resolve();
+        };
+        img.onload = done;
+        img.onerror = done;
+      });
+    }
 
-    return () => {
-      cancelled = true;
-    };
+    async function loadAll() {
+      // Phase 1: load initial batch (first INITIAL_BATCH frames) fast
+      const firstBatch = FRAME_PATHS.slice(0, INITIAL_BATCH).map((_, i) => loadImage(i));
+      await Promise.all(firstBatch);
+      if (cancelled) return;
+      setLoadProgress(100);
+      imagesRef.current = images;
+      setLoaded(true);
+
+      // Phase 2: load remaining frames in small batches (background)
+      const CHUNK = 10;
+      for (let start = INITIAL_BATCH; start < TOTAL_FRAMES; start += CHUNK) {
+        if (cancelled) return;
+        const end = Math.min(start + CHUNK, TOTAL_FRAMES);
+        const batch = [];
+        for (let j = start; j < end; j++) batch.push(loadImage(j));
+        await Promise.all(batch);
+      }
+    }
+
+    loadAll();
+    return () => { cancelled = true; };
   }, []);
 
   /* ── Draw frame on canvas ("contain" logic) ─────── */
@@ -255,10 +265,16 @@ export default function SolaraHero() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const img = imagesRef.current[index];
+    // Fall back to nearest loaded frame if requested isn't ready yet
+    let img = imagesRef.current[index];
+    if (!img || !img.complete) {
+      for (let i = index - 1; i >= 0; i--) {
+        if (imagesRef.current[i]?.complete) { img = imagesRef.current[i]; break; }
+      }
+    }
     if (!img || !img.complete) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const cw = canvas.clientWidth;
     const ch = canvas.clientHeight;
 
@@ -311,7 +327,7 @@ export default function SolaraHero() {
     const handleResize = () => {
       const canvas = canvasRef.current;
       if (canvas) {
-        const dpr = window.devicePixelRatio || 1;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
         canvas.width = canvas.clientWidth * dpr;
         canvas.height = canvas.clientHeight * dpr;
         const ctx = canvas.getContext("2d");
