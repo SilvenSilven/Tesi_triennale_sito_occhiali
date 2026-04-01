@@ -92,6 +92,9 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-warm/5 pt-8 text-xs text-warm/30 md:flex-row">
           <p>&copy; 2026 Solara. Tutti i diritti riservati.</p>
+          <p className="font-semibold text-accent/80 uppercase tracking-widest text-[10px]">
+            Sito a scopo accademico e dimostrativo
+          </p>
         </div>
       </div>
     </footer>

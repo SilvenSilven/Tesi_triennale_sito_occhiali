@@ -26,6 +26,11 @@ export default function Navbar() {
           SOLARA
         </Link>
 
+        {/* Demo text */}
+        <span className="hidden md:block absolute left-1/2 -translate-x-1/2 text-[10px] font-bold tracking-[0.15em] uppercase text-accent/80">
+          Sito a scopo accademico e dimostrativo
+        </span>
+
         {/* Desktop links */}
         <ul className="hidden gap-8 md:flex">
           {NAV_LINKS.map((link) => (
