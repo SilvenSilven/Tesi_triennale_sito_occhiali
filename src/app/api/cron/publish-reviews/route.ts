@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import sql from "@/lib/db";
 
 /**
@@ -26,6 +27,13 @@ export async function POST(req: NextRequest) {
     RETURNING id, product_id, product_name, username, publish_date::text
   `;
 
+  // Invalida la cache ISR delle pagine prodotto interessate
+  const affectedProductIds = Array.from(new Set(result.map((r: any) => r.product_id)));
+  for (const pid of affectedProductIds) {
+    revalidatePath(`/prodotto/${pid}`);
+    revalidatePath(`/prodotto/${pid}/recensioni`);
+  }
+
   return NextResponse.json(
     {
       published: result.length,
@@ -52,6 +60,13 @@ export async function GET(req: NextRequest) {
       AND publish_date <= CURRENT_DATE
     RETURNING id, product_id, product_name, username, publish_date::text
   `;
+
+  // Invalida la cache ISR delle pagine prodotto interessate
+  const affectedProductIds = Array.from(new Set(result.map((r: any) => r.product_id)));
+  for (const pid of affectedProductIds) {
+    revalidatePath(`/prodotto/${pid}`);
+    revalidatePath(`/prodotto/${pid}/recensioni`);
+  }
 
   return NextResponse.json(
     {
