@@ -214,11 +214,11 @@ export default function CatalogoClient({
                       </span>
                     )}
                   </div>
-                  <div className="mt-1.5 flex items-center justify-between">
-                    <span className="text-sm text-warm/50">
+                  <div className="mt-2 flex items-center justify-between gap-3">
+                    <span className="text-sm text-warm/50 truncate">
                       {product.montatura}
                     </span>
-                    <span className="font-playfair text-lg font-bold text-warm/80">
+                    <span className="font-playfair text-lg font-bold text-warm/80 whitespace-nowrap shrink-0">
                       {pricesMap[product.id]
                         ? `€ ${pricesMap[product.id].toFixed(2)}`
                         : product.prezzo}
