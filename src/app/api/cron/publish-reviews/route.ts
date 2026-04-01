@@ -44,12 +44,21 @@ export async function POST(req: NextRequest) {
   );
 }
 
-// Permetti anche GET per facilitare l'integrazione con cron-job.org (che preferisce GET)
+// Permetti anche GET per facilitare l'integrazione con Vercel Cron e cron-job.org
 export async function GET(req: NextRequest) {
+  // Vercel Cron invia Authorization: Bearer <CRON_SECRET>
+  const authHeader = req.headers.get("authorization");
+  const expectedToken = `Bearer ${process.env.CRON_SECRET}`;
+
+  // Controlla anche il query param ?secret= per retrocompatibilità
   const { searchParams } = new URL(req.url);
   const secret = searchParams.get("secret");
 
-  if (!secret || secret !== process.env.CRON_SECRET) {
+  const authorized =
+    (authHeader && authHeader === expectedToken) ||
+    (secret && secret === process.env.CRON_SECRET);
+
+  if (!authorized) {
     return NextResponse.json({ error: "Non autorizzato" }, { status: 401 });
   }
 

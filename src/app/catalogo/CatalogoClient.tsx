@@ -124,8 +124,10 @@ function HoverCarousel({
 
 export default function CatalogoClient({
   ratingsMap,
+  pricesMap,
 }: {
   ratingsMap: Record<number, { avg: number; count: number }>;
+  pricesMap: Record<number, number>;
 }) {
   return (
     <div className="bg-sand pt-28 pb-20">
@@ -217,7 +219,9 @@ export default function CatalogoClient({
                       {product.montatura}
                     </span>
                     <span className="font-playfair text-lg font-bold text-warm/80">
-                      {product.prezzo}
+                      {pricesMap[product.id]
+                        ? `€ ${pricesMap[product.id].toFixed(2)}`
+                        : product.prezzo}
                     </span>
                   </div>
                 </div>

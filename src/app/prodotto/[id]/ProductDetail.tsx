@@ -63,11 +63,15 @@ export default function ProductDetail({
   reviews = [],
   totalReviews = 0,
   avgStars = 0,
+  dynamicPrice = null,
+  pricesMap = {},
 }: {
   product: Product;
   reviews?: Review[];
   totalReviews?: number;
   avgStars?: number;
+  dynamicPrice?: number | null;
+  pricesMap?: Record<number, number>;
 }) {
   const recommended = useMemo(
     () => getRecommendations(product.id),
@@ -209,7 +213,7 @@ export default function ProductDetail({
 
             <div className="mt-6 flex items-baseline gap-3">
               <span className="font-playfair text-4xl font-bold text-warm/90 md:text-5xl">
-                {product.prezzo}
+                {dynamicPrice ? `€ ${dynamicPrice.toFixed(2)}` : product.prezzo}
               </span>
             </div>
 
@@ -434,7 +438,9 @@ export default function ProductDetail({
                     {rec.nome_modello}
                   </h3>
                   <p className="mt-1 font-playfair text-base font-bold text-warm/70">
-                    {rec.prezzo}
+                    {pricesMap[rec.id]
+                      ? `€ ${pricesMap[rec.id].toFixed(2)}`
+                      : rec.prezzo}
                   </p>
                 </div>
               </Link>

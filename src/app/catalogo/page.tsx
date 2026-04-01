@@ -28,5 +28,18 @@ export default async function Page() {
     };
   });
 
-  return <CatalogoClient ratingsMap={ratingsMap} />;
+  // Prezzi dinamici dalla tabella product_prices (prezzo di oggi)
+  const todayPrices = await sql`
+    SELECT product_id, price
+    FROM product_prices
+    WHERE price_date = CURRENT_DATE
+    ORDER BY product_id
+  `;
+
+  const pricesMap: Record<number, number> = {};
+  todayPrices.forEach((row) => {
+    pricesMap[Number(row.product_id)] = Number(row.price);
+  });
+
+  return <CatalogoClient ratingsMap={ratingsMap} pricesMap={pricesMap} />;
 }

@@ -24,6 +24,25 @@ export default async function ProdottoPage({ params }: { params: { id: string } 
   const product = getProductById(Number(params.id));
   if (!product) notFound();
 
+  // Prezzo dinamico di oggi dalla tabella product_prices
+  const priceRow = (await sql`
+    SELECT price FROM product_prices
+    WHERE product_id = ${product.id} AND price_date = CURRENT_DATE
+    LIMIT 1
+  `);
+  const dynamicPrice = priceRow.length > 0 ? Number(priceRow[0].price) : null;
+
+  // Prezzi di tutti i prodotti (per i raccomandati)
+  const allPrices = await sql`
+    SELECT product_id, price FROM product_prices
+    WHERE price_date = CURRENT_DATE
+    ORDER BY product_id
+  `;
+  const pricesMap: Record<number, number> = {};
+  allPrices.forEach((row) => {
+    pricesMap[Number(row.product_id)] = Number(row.price);
+  });
+
   // Solo 3 recensioni per l'anteprima — la pagina /recensioni mostra tutte
   const reviews = (await sql`
     SELECT id, product_id, product_name, username, stars, body,
@@ -53,6 +72,8 @@ export default async function ProdottoPage({ params }: { params: { id: string } 
       reviews={reviews}
       totalReviews={Number(totalReviews.count)}
       avgStars={avgStars ? Number(avgStars.avg) : 0}
+      dynamicPrice={dynamicPrice}
+      pricesMap={pricesMap}
     />
   );
 }
