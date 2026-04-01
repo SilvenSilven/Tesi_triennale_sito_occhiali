@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
   `;
 
   // Invalida la cache ISR delle pagine prodotto interessate
-  const affectedProductIds = Array.from(new Set(result.map((r: any) => r.product_id)));
+  const affectedProductIds = Array.from(new Set(result.map((r: Record<string, unknown>) => r.product_id)));
   for (const pid of affectedProductIds) {
     revalidatePath(`/prodotto/${pid}`);
     revalidatePath(`/prodotto/${pid}/recensioni`);
@@ -62,7 +62,7 @@ export async function GET(req: NextRequest) {
   `;
 
   // Invalida la cache ISR delle pagine prodotto interessate
-  const affectedProductIds = Array.from(new Set(result.map((r: any) => r.product_id)));
+  const affectedProductIds = Array.from(new Set(result.map((r: Record<string, unknown>) => r.product_id)));
   for (const pid of affectedProductIds) {
     revalidatePath(`/prodotto/${pid}`);
     revalidatePath(`/prodotto/${pid}/recensioni`);
