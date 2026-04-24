@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PRODUCTS } from "@/data/products";
 
 /* ── Plan data ─────────────────────────────────────── */
 interface Plan {
@@ -13,10 +14,14 @@ interface Plan {
   highlighted: boolean;
 }
 
+const prices = PRODUCTS.map((p) => p.prezzoNumero);
+const minPrice = Math.min(...prices);
+const midPrice = [...prices].sort((a, b) => a - b)[Math.floor(prices.length / 2)];
+
 const PLANS: Plan[] = [
   {
     name: "Solara Classic",
-    price: "129€",
+    price: `da ${minPrice}€`,
     description: "Stile senza tempo, protezione garantita.",
     features: [
       "Lenti UV400",
@@ -29,7 +34,7 @@ const PLANS: Plan[] = [
   },
   {
     name: "Solara Prestige",
-    price: "229€",
+    price: `da ${midPrice}€`,
     description: "L'esperienza completa. Ogni dettaglio, curato.",
     badge: "Best seller estate",
     features: [
