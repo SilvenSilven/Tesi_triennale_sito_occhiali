@@ -12,6 +12,12 @@ const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 /* Featured products — pick 4 varied ones */
 const FEATURED = [PRODUCTS[0], PRODUCTS[3], PRODUCTS[5], PRODUCTS[7]];
 
+function formatPrice(product: (typeof PRODUCTS)[0], pricesMap: Record<number, number>): string {
+  const dynamic = pricesMap[product.id];
+  if (dynamic) return `€ ${dynamic.toFixed(2)}`;
+  return product.prezzo;
+}
+
 /* Perks row */
 const PERKS = [
   {
@@ -51,7 +57,7 @@ const PERKS = [
   },
 ];
 
-export default function HomeLanding() {
+export default function HomeLanding({ pricesMap = {} }: { pricesMap?: Record<number, number> }) {
   const parallaxRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: parallaxRef,
@@ -258,7 +264,7 @@ export default function HomeLanding() {
                     </h3>
                     <div className="mt-1 flex items-center justify-between">
                       <span className="text-sm text-warm/45">{product.montatura}</span>
-                      <span className="font-playfair text-lg font-bold text-warm/75">{product.prezzo}</span>
+                      <span className="font-playfair text-lg font-bold text-warm/75">{formatPrice(product, pricesMap)}</span>
                     </div>
                   </div>
                 </Link>
